@@ -1,0 +1,3 @@
+[submodule "libs/iniparser"]
+	path = libs/iniparser
+	url = https://github.com/ndevilla/iniparser.git
