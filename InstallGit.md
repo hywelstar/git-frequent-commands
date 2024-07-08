@@ -8,17 +8,17 @@
 
    ```bash
       sudo apt update
-         ```
+   ```
 
-	 2. **安装**
+2. **安装**
 
-	    ```bash
-	       sudo apt install git
-	          ```
+    ```bash
+    sudo apt install git
+    ```
 
-		  3. **验证安装**:
+3. **验证安装**:
 
-		     ```bash 
-		        git --version
-			   ```
+    ```bash 
+    git --version
+    ```
 
