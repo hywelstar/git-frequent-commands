@@ -1,12 +1,12 @@
-# Git 安装指南
+# Git Installation Guide
 
-## 适用场景
+## When to Use This Guide
 
-当你需要在新设备上开始使用 Git，或帮助同事快速完成安装时，可以参考本文档。
+Use this guide when you are setting up Git on a new machine or helping a teammate get started quickly.
 
 ## Windows
 
-前往 [Git for Windows](https://gitforwindows.org/) 下载并安装，安装完成后打开 Git Bash 或终端执行：
+Download Git from [Git for Windows](https://gitforwindows.org/). After installation, open Git Bash or a terminal and verify the installation:
 
 ```bash
 git --version
@@ -14,13 +14,13 @@ git --version
 
 ## macOS
 
-如果已经安装 Homebrew，可以执行：
+If Homebrew is available, install Git with:
 
 ```bash
 brew install git
 ```
 
-安装完成后执行：
+Then verify the installation:
 
 ```bash
 git --version
@@ -28,31 +28,31 @@ git --version
 
 ## Ubuntu / Debian
 
-### 1. 更新包列表
+### 1. Update package metadata
 
 ```bash
 sudo apt update
 ```
 
-### 2. 安装 Git
+### 2. Install Git
 
 ```bash
 sudo apt install git
 ```
 
-### 3. 验证安装结果
+### 3. Confirm Git is available
 
 ```bash
 git --version
 ```
 
-## 安装完成后的建议操作
+## Recommended Next Step
 
-首次安装完成后，建议继续配置用户名与邮箱：
+After installing Git, configure your identity so future commits have the correct author information:
 
 ```bash
 git config --global user.name "Your Name"
 git config --global user.email "you@example.com"
 ```
 
-你也可以继续阅读 `git-config-usage.md` 了解更多配置项。
+You can continue with `git-config-usage.md` for more configuration examples.

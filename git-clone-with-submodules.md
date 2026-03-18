@@ -1,65 +1,65 @@
-# Git Clone 子模块指南
+# Git Clone with Submodules
 
-## 适用场景
+## When to Use This Guide
 
-当仓库包含 Git Submodule 时，普通的 `git clone` 只会拉取主仓库内容，子模块目录可能为空。此时应使用本文档中的方式进行克隆与初始化。
+Use this guide when a repository includes Git submodules. A normal `git clone` fetches the main repository, but submodule directories may remain empty until they are initialized.
 
-## 1. 克隆仓库并自动初始化子模块
+## 1. Clone and initialize submodules immediately
 
-推荐直接使用 `--recurse-submodules` 参数：
+The recommended approach is to clone with `--recurse-submodules`:
 
 ```bash
 git clone --recurse-submodules <repository_url>
 ```
 
-例如：
+Example:
 
 ```bash
 git clone --recurse-submodules https://github.com/zalebool/git-frequent-commands.git
 ```
 
-## 2. 已克隆仓库后再初始化子模块
+## 2. Initialize submodules after cloning
 
-如果仓库已经克隆完成，但子模块尚未初始化，可以进入仓库后执行：
+If the repository is already cloned, enter the project and initialize submodules manually:
 
 ```bash
 cd <repository_name>
 git submodule update --init --recursive
 ```
 
-例如：
+Example:
 
 ```bash
 cd git-frequent-commands
 git submodule update --init --recursive
 ```
 
-## 3. 确认子模块状态
+## 3. Check submodule status
 
-可以使用以下命令查看子模块是否已成功初始化：
+Use this command to verify that submodules are initialized correctly:
 
 ```bash
 git submodule status
 ```
 
-## 4. 更新子模块
+## 4. Update submodules
 
-当子模块引用发生变化，或者需要拉取子模块远程最新内容时，可以执行：
+If submodule references have changed or you want to pull newer upstream content for them, run:
 
 ```bash
 git submodule update --remote --merge
 ```
 
-## 其他常见操作
+## Other Common Operations
 
-### 添加新子模块
+### Add a new submodule
 
 ```bash
 git submodule add <repository_url> <path>
 git commit -m "Add new submodule <submodule_name>"
 ```
 
-### 移除子模块
+### Remove a submodule
 
 ```bash
 git submodule deinit -f <path_to_submodule>
@@ -68,7 +68,7 @@ rm -rf .git/modules/<path_to_submodule>
 git commit -m "Remove submodule <submodule_name>"
 ```
 
-## 注意事项
+## Notes
 
-- 拉取主仓库更新后，如果子模块引用变动，通常还需要再次执行 `git submodule update --init --recursive`。
-- 提交含有子模块的项目时，Git 记录的是子模块提交引用，而不是子模块目录的全部文件内容。
+- After pulling updates from the main repository, run `git submodule update --init --recursive` if submodule references changed.
+- Git stores submodule commit references, not a full copy of the submodule contents inside the parent repository.

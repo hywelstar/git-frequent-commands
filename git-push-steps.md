@@ -1,93 +1,93 @@
-# Git Push 推送指南
+# Git Push Guide
 
-## 适用场景
+## When to Use This Guide
 
-当你已经完成本地修改，并准备把代码同步到远程仓库时，可以参考本文档中的标准流程。
+Use this guide when you have finished local changes and want to publish them to a remote repository safely.
 
-## 提交并推送代码的基本步骤
+## Basic Push Workflow
 
-### 1. 检查工作区状态
+### 1. Check the working tree
 
-在进行任何提交前，先确认当前工作区有哪些修改：
+Always review your current repository state before creating a commit:
 
 ```bash
 git status
 ```
 
-如果想用更精简的格式查看状态，可以使用：
+If you prefer compact output, use:
 
 ```bash
 git status --short
 ```
 
-### 2. 添加修改到暂存区
+### 2. Stage the files you want to commit
 
-使用 `git add` 将修改加入暂存区：
+Stage specific files:
 
 ```bash
 git add <file1> <file2>
 ```
 
-如果要一次性添加当前目录下的全部修改，可以使用：
+Or stage everything in the current directory:
 
 ```bash
 git add .
 ```
 
-### 3. 再次确认暂存结果
+### 3. Confirm the staged result
 
-添加完成后，建议再次执行状态检查，确认需要提交的内容已经进入暂存区：
+Run `git status` again to make sure only the intended changes are staged:
 
 ```bash
 git status
 ```
 
-### 4. 提交到本地仓库
+### 4. Create a local commit
 
-使用 `git commit` 创建本地提交：
+Create a commit with a clear message:
 
 ```bash
 git commit -m "docs: update git command guides"
 ```
 
-如果省略 `-m` 参数，Git 会打开默认编辑器，让你输入更完整的提交信息。
+If you omit `-m`, Git opens your configured editor so you can write a longer message.
 
-### 5. 推送到远程仓库
+### 5. Push to the remote repository
 
-将当前分支推送到远程仓库：
+Push the current branch to a remote:
 
 ```bash
 git push origin <branch>
 ```
 
-例如：
+Example:
 
 ```bash
 git push origin main
 ```
 
-如果是第一次推送当前分支，并希望建立上游分支关系，可以使用：
+If this is the first push for the branch and you want to set upstream tracking:
 
 ```bash
 git push -u origin <branch>
 ```
 
-## 常见检查命令
+## Helpful Checks
 
-### 查看当前所在分支
+### Show the current branch
 
 ```bash
 git branch --show-current
 ```
 
-### 查看远程仓库信息
+### Show configured remotes
 
 ```bash
 git remote -v
 ```
 
-## 注意事项
+## Notes
 
-- 推送前尽量先执行 `git status`，避免把临时文件一并提交。
-- 与他人协作时，推送前可以先执行 `git pull --rebase`，减少冲突概率。
-- 如果远程拒绝推送，需要先同步远程最新提交，再重新推送。
+- Run `git status` before pushing so you do not accidentally include temporary files.
+- In collaborative repositories, `git pull --rebase` before pushing can reduce unnecessary merge commits.
+- If the remote rejects your push, fetch or pull the latest remote changes first and resolve any conflicts.

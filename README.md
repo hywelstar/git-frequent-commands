@@ -1,37 +1,37 @@
 # git-frequent-commands
 
-## 项目简介
+## Overview
 
-这个仓库整理了开发过程中最常用的 Git 命令与工作流示例，适合作为日常查阅手册。内容覆盖安装、状态查看、提交、分支、差异比较、日志、远程仓库、标签、子模块以及 Git 配置等主题，帮助开发者更高效地完成常见版本控制操作。
+This repository collects frequently used Git commands and short workflow guides that developers can use as a practical reference. It covers installation, status inspection, commits, branches, diffs, logs, tags, submodules, and Git configuration.
 
-## 目录
+## Documentation Index
 
-### 入门
+### Getting Started
 
-- [Git 安装指南](git-install-steps.md)：介绍在常见操作系统上安装 Git 的方法。
-- [Git Status 使用指南](git-status-usage.md)：快速查看工作区、暂存区与分支状态。
-- [Git Config 使用指南](git-config-usage.md)：配置用户名、邮箱、默认编辑器与常见别名。
+- [Git Installation Guide](git-install-steps.md): Install Git on common operating systems and verify that it works.
+- [Git Status Guide](git-status-usage.md): Check working tree, staging area, and branch state before making changes.
+- [Git Config Guide](git-config-usage.md): Set your username, email, editor, aliases, and other common defaults.
 
-### 常用提交流程
+### Everyday Commit Workflow
 
-- [Git Commit 使用指南](git-commit-usage.md)：说明规范化提交信息的写法。
-- [Git Push 推送指南](git-push-steps.md)：介绍提交前检查、暂存、提交与推送流程。
-- [Git Emoji 指南](git-emoji.md)：汇总常见 gitmoji 及其含义。
+- [Git Commit Guide](git-commit-usage.md): Write clearer and more consistent commit messages.
+- [Git Push Guide](git-push-steps.md): Review changes, stage files, commit work, and push to a remote branch.
+- [Git Emoji Guide](git-emoji.md): Use gitmoji references for commit message categorization.
 
-### 分支与历史
+### Branches and History
 
-- [Git 分支操作指南](git-branch-operations.md)：创建、切换、合并、删除与推送分支。
-- [Git Diff 使用指南](git-diff-usage.md)：查看工作区、暂存区和提交之间的差异。
-- [Git Log 使用指南](git-log-usage.md)：查看提交历史、图形化日志与过滤条件。
-- [Git Tag 使用指南](git-tag-usage.md)：创建、查看、推送和删除标签。
+- [Git Branch Operations](git-branch-operations.md): Create, switch, merge, delete, and publish branches.
+- [Git Diff Guide](git-diff-usage.md): Compare working tree, staged files, and commits.
+- [Git Log Guide](git-log-usage.md): Browse commit history, branch graphs, and filtered logs.
+- [Git Tag Guide](git-tag-usage.md): Create, inspect, push, and remove tags.
 
-### 远程仓库与子模块
+### Remotes and Submodules
 
-- [Git Clone 子模块指南](git-clone-with-submodules.md)：克隆并初始化带子模块的仓库。
+- [Git Clone with Submodules](git-clone-with-submodules.md): Clone repositories that contain Git submodules and keep them updated.
 
-## 推荐阅读顺序
+## Suggested Reading Order
 
-如果你刚开始使用 Git，建议按以下顺序阅读：
+If you are new to Git, a practical reading order is:
 
 1. `git-install-steps.md`
 2. `git-status-usage.md`
@@ -44,12 +44,12 @@
 9. `git-tag-usage.md`
 10. `git-clone-with-submodules.md`
 
-## 后续可扩展主题
+## Possible Future Additions
 
-后续还可以继续补充如下主题，使仓库更加完整：
+The repository could also be expanded with:
 
-- Git stash 使用指南
-- Git clean 使用指南
-- Git remote 使用指南
-- Merge 与 rebase 的区别
-- 常见问题 FAQ
+- a Git stash guide
+- a Git clean guide
+- a Git remote guide
+- a merge vs. rebase comparison
+- a short FAQ for common mistakes

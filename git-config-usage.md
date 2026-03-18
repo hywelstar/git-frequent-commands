@@ -1,84 +1,84 @@
-# Git Config 使用指南
+# Git Config Guide
 
-## 适用场景
+## When to Use This Guide
 
-当你首次安装 Git、切换开发设备，或者想统一提交身份与常用工具时，可以通过 `git config` 完成配置。
+Use `git config` when you are setting up Git for the first time, moving to a new machine, or standardizing your local workflow.
 
-## 查看当前配置
+## Inspect Existing Configuration
 
-### 查看所有配置
+### List all configuration values
 
 ```bash
 git config --list
 ```
 
-### 区分配置来源
+### Show where each configuration came from
 
 ```bash
 git config --list --show-origin
 ```
 
-这有助于判断某个配置来自系统级、全局级还是当前仓库。
+This helps you tell whether a value comes from the system, global, or repository-level config.
 
-## 常见配置项
+## Common Settings
 
-### 配置用户名
+### Set your name
 
 ```bash
 git config --global user.name "Your Name"
 ```
 
-### 配置邮箱
+### Set your email
 
 ```bash
 git config --global user.email "you@example.com"
 ```
 
-### 设置默认编辑器
+### Set the default editor
 
 ```bash
 git config --global core.editor "vim"
 ```
 
-### 设置默认分支名
+### Set the default initial branch name
 
 ```bash
 git config --global init.defaultBranch main
 ```
 
-## 仓库级与全局级配置
+## Global vs. Repository-Level Settings
 
-- `--global`：对当前用户的所有 Git 仓库生效。
-- 不带 `--global`：仅对当前仓库生效。
+- `--global` applies to all repositories for the current user.
+- Omitting `--global` applies the setting only to the current repository.
 
-例如，只为当前仓库设置邮箱：
+For example, to use a different email in only one repository:
 
 ```bash
 git config user.email "project@example.com"
 ```
 
-## 常用别名
+## Useful Aliases
 
-### 设置简洁日志别名
+### Add a compact log alias
 
 ```bash
 git config --global alias.lg "log --oneline --graph --decorate --all"
 ```
 
-### 设置状态别名
+### Add a short status alias
 
 ```bash
 git config --global alias.st status
 ```
 
-配置后就可以使用：
+Then you can use:
 
 ```bash
 git lg
 git st
 ```
 
-## 注意事项
+## Notes
 
-- 团队协作中，用户名和邮箱应与代码托管平台保持一致，便于识别提交人。
-- 如果提交作者信息错误，可以修改配置后再重新创建提交。
+- In team projects, keep your Git username and email aligned with your hosting platform account.
+- If you create a commit with the wrong author information, update the config and recreate or amend the commit.

@@ -1,72 +1,72 @@
-# Git Status 使用指南
+# Git Status Guide
 
-## 适用场景
+## When to Use This Guide
 
-当你想知道当前仓库有哪些文件被修改、哪些内容已进入暂存区，以及自己当前位于哪个分支时，最先应该使用 `git status`。
+Use `git status` whenever you want to see which files changed, which changes are staged, and which branch you are currently on.
 
-## 基本命令
+## Basic Commands
 
-### 查看完整状态
+### Show the full repository status
 
 ```bash
 git status
 ```
 
-该命令会显示：
+This command shows:
 
-- 当前分支名称
-- 工作区中已修改但未暂存的文件
-- 已暂存、准备提交的文件
-- 尚未跟踪的新文件
+- the current branch
+- modified files that are not staged yet
+- staged files that are ready to commit
+- untracked files
 
-### 查看精简状态
+### Show a compact status view
 
 ```bash
 git status --short
 ```
 
-输出中常见的状态标记含义如下：
+Common status markers include:
 
-- `M`：文件已修改
-- `A`：文件已添加到暂存区
-- `D`：文件已删除
-- `??`：未跟踪文件
+- `M`: modified file
+- `A`: added to the staging area
+- `D`: deleted file
+- `??`: untracked file
 
-### 同时查看分支与精简状态
+### Show branch and short status together
 
 ```bash
 git status -sb
 ```
 
-这个命令适合日常快速检查，既能看当前分支，也能看简洁的文件变更列表。
+This is useful for quick daily checks because it shows both the branch name and a compact list of file changes.
 
-## 常见使用场景
+## Common Scenarios
 
-### 提交前检查
-
-```bash
-git status
-```
-
-确保只提交你真正想提交的文件。
-
-### `git add` 后确认暂存结果
+### Review changes before committing
 
 ```bash
 git status
 ```
 
-确认需要提交的修改是否已经从 “Changes not staged” 进入 “Changes to be committed”。
+This helps confirm that you are committing only the files you intended.
 
-### 清理前确认未跟踪文件
+### Confirm staged files after `git add`
+
+```bash
+git status
+```
+
+Use this to make sure changes moved from unstaged output into the staged section.
+
+### Check untracked files before cleaning up
 
 ```bash
 git status --short
 ```
 
-适合在执行 `git clean`、切换分支或提交前快速确认目录状态。
+This is especially useful before running `git clean`, switching branches, or creating a commit.
 
-## 注意事项
+## Notes
 
-- `git status` 不会展示具体行级差异，如需查看内容改动，使用 `git diff`。
-- 养成频繁执行 `git status` 的习惯，可以显著减少误提交的概率。
+- `git status` does not show line-by-line differences; use `git diff` for that.
+- Running `git status` often helps prevent accidental commits.

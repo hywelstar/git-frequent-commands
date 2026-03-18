@@ -1,86 +1,86 @@
-# Git Log 使用指南
+# Git Log Guide
 
-## 适用场景
+## When to Use This Guide
 
-当你需要查看提交历史、定位某次变更、分析分支关系或筛选某位作者的提交时，可以使用 `git log`。
+Use `git log` when you need to inspect commit history, trace a change, understand branch relationships, or filter commits by author or date.
 
-## 基本命令
+## Basic Commands
 
-### 查看完整提交历史
+### Show the full history
 
 ```bash
 git log
 ```
 
-### 查看精简的一行日志
+### Show a compact one-line history
 
 ```bash
 git log --oneline
 ```
 
-### 查看图形化分支历史
+### Show a graph of branch history
 
 ```bash
 git log --oneline --graph --decorate --all
 ```
 
-这个命令非常适合观察分支合并关系。
+This is especially helpful when you want to understand merges and parallel branch development.
 
-## 常见过滤方式
+## Common Filters
 
-### 查看最近 5 条提交
+### Show the most recent 5 commits
 
 ```bash
 git log -n 5
 ```
 
-### 按作者筛选
+### Filter by author
 
 ```bash
 git log --author="Alice"
 ```
 
-### 按时间筛选
+### Filter by time range
 
 ```bash
 git log --since="7 days ago"
 ```
 
-### 查看某个文件的历史
+### Show history for one file
 
 ```bash
 git log -- <filename>
 ```
 
-例如：
+Example:
 
 ```bash
 git log -- README.md
 ```
 
-## 结合 diff 查看变更
+## Combine Log with Diff Output
 
-### 查看每次提交的改动摘要
+### Show a summary of changed files per commit
 
 ```bash
 git log --stat
 ```
 
-### 查看每次提交的具体内容
+### Show patch details for each commit
 
 ```bash
 git log -p
 ```
 
-## 推荐组合
+## A Handy Everyday Command
 
-日常开发中常用的历史查看命令：
+A common log command for day-to-day work is:
 
 ```bash
 git log --oneline --graph --decorate -n 10
 ```
 
-## 注意事项
+## Notes
 
-- `git log` 关注的是提交历史，不会展示未提交的工作区修改。
-- 若想查看当前未提交的改动，应改用 `git status` 或 `git diff`。
+- `git log` shows committed history, not uncommitted working tree changes.
+- To inspect uncommitted changes, use `git status` or `git diff` instead.
