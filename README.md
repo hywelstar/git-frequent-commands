@@ -2,77 +2,54 @@
 
 ## Overview
 
-This repository serves as a comprehensive guide to frequently used Git commands, providing examples and explanations for each. It aims to help developers efficiently use Git in their daily workflow.
+This repository collects frequently used Git commands and short workflow guides that developers can use as a practical reference. It covers installation, status inspection, commits, branches, diffs, logs, tags, submodules, and Git configuration.
 
-## Table of Contents
+## Documentation Index
 
-- [Getting Started](#getting-started)
-- [Basic Commands](#basic-commands)
-- [Branching and Merging](#branching-and-merging)
-- [Remote Repositories](#remote-repositories)
-- [Stashing and Cleaning](#stashing-and-cleaning)
-- [Logs and History](#logs-and-history)
-- [Tagging](#tagging)
-- [Configuration](#configuration)
-- [Emoji Commit Guide](#emoji-commit-guide)
+### Getting Started
 
-## Getting Started
+- [Git Installation Guide](git-install-steps.md): Install Git on common operating systems and verify that it works.
+- [Git Status Guide](git-status-usage.md): Check working tree, staging area, and branch state before making changes.
+- [Git Config Guide](git-config-usage.md): Set your username, email, editor, aliases, and other common defaults.
 
-### Install Git
+### Everyday Commit Workflow
 
-- **Windows**: Download from [Git for Windows](https://gitforwindows.org/).
-- **macOS**: Install using Homebrew:
-  ```sh
-    brew install git
+- [Git Commit Guide](git-commit-usage.md): Write clearer and more consistent commit messages.
+- [Git Push Guide](git-push-steps.md): Review changes, stage files, commit work, and push to a remote branch.
+- [Git Emoji Guide](git-emoji.md): Use gitmoji references for commit message categorization.
 
-## Basic Commands
+### Branches and History
 
-- **git-commit-usage.md**: Detailed instructions on how to write effective commit messages, including a guide on using emoji in commit messages.
-- **git-push-steps.md**: Steps to push your changes to a remote repository.
+- [Git Branch Operations](git-branch-operations.md): Create, switch, merge, delete, and publish branches.
+- [Git Diff Guide](git-diff-usage.md): Compare working tree, staged files, and commits.
+- [Git Log Guide](git-log-usage.md): Browse commit history, branch graphs, and filtered logs.
+- [Git Tag Guide](git-tag-usage.md): Create, inspect, push, and remove tags.
 
-## Branching and Merging
+### Remotes and Submodules
 
-- **git-branch-operations.md**: A comprehensive guide to creating, deleting, and managing branches in Git.
-- **git-branch-operations.md**: not done.
+- [Git Clone with Submodules](git-clone-with-submodules.md): Clone repositories that contain Git submodules and keep them updated.
 
-## Remote Repositories
+## Suggested Reading Order
 
-- **git-clone-with-submodules.md**: Instructions on how to clone repositories that include submodules.
+If you are new to Git, a practical reading order is:
 
-## Logs and History
+1. `git-install-steps.md`
+2. `git-status-usage.md`
+3. `git-config-usage.md`
+4. `git-commit-usage.md`
+5. `git-push-steps.md`
+6. `git-branch-operations.md`
+7. `git-diff-usage.md`
+8. `git-log-usage.md`
+9. `git-tag-usage.md`
+10. `git-clone-with-submodules.md`
 
-- **git-diff-usage.md**: Guidelines for using the `git diff` command to see changes between commits, branches, and more.
-- **git-tag-usage.md**: Explanation of how to create, list, and delete tags in Git.
+## Possible Future Additions
 
-## Emoji Commit Guide
+The repository could also be expanded with:
 
-- **git-emoji.md**: A list of commonly used emojis in commit messages to categorize and describe changes visually.
-
-## Additional Documentation
-
-- **git-install-steps.md**: Detailed installation steps for Git.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- a Git stash guide
+- a Git clean guide
+- a Git remote guide
+- a merge vs. rebase comparison
+- a short FAQ for common mistakes
