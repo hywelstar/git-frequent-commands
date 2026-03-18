@@ -1,14 +1,12 @@
-# git-clone-with-submodules
+# Git Clone 子模块指南
 
-## Git clone 子模块指南
+## 适用场景
 
-在克隆一个包含子模块的 Git 仓库时，可以使用以下步骤确保所有子模块都被正确初始化和更新。
+当仓库包含 Git Submodule 时，普通的 `git clone` 只会拉取主仓库内容，子模块目录可能为空。此时应使用本文档中的方式进行克隆与初始化。
 
-### 步骤
+## 1. 克隆仓库并自动初始化子模块
 
-### 1. 使用 `--recurse-submodules` 选项克隆仓库
-
-使用 `--recurse-submodules` 选项可以在克隆仓库时自动初始化和更新所有子模块。
+推荐直接使用 `--recurse-submodules` 参数：
 
 ```bash
 git clone --recurse-submodules <repository_url>
@@ -20,9 +18,9 @@ git clone --recurse-submodules <repository_url>
 git clone --recurse-submodules https://github.com/zalebool/git-frequent-commands.git
 ```
 
-### 2. 如果已经克隆了仓库，但没有初始化子模块
+## 2. 已克隆仓库后再初始化子模块
 
-如果你已经克隆了仓库，但还没有初始化子模块，可以使用以下命令手动初始化和更新子模块：
+如果仓库已经克隆完成，但子模块尚未初始化，可以进入仓库后执行：
 
 ```bash
 cd <repository_name>
@@ -36,29 +34,23 @@ cd git-frequent-commands
 git submodule update --init --recursive
 ```
 
-### 3. 确认子模块已初始化
+## 3. 确认子模块状态
 
-使用以下命令确认子模块已被初始化和更新：
+可以使用以下命令查看子模块是否已成功初始化：
 
 ```bash
-git submodule
+git submodule status
 ```
 
-### 4. 更新子模块
+## 4. 更新子模块
 
-如果子模块有更新，你可以使用以下命令来更新它们：
+当子模块引用发生变化，或者需要拉取子模块远程最新内容时，可以执行：
 
 ```bash
 git submodule update --remote --merge
 ```
 
-## 其他常见子模块操作
-
-### 查看子模块状态
-
-```bash
-git submodule status
-```
+## 其他常见操作
 
 ### 添加新子模块
 
@@ -69,8 +61,6 @@ git commit -m "Add new submodule <submodule_name>"
 
 ### 移除子模块
 
-如果你需要移除一个子模块，可以使用以下步骤：
-
 ```bash
 git submodule deinit -f <path_to_submodule>
 git rm -f <path_to_submodule>
@@ -78,23 +68,7 @@ rm -rf .git/modules/<path_to_submodule>
 git commit -m "Remove submodule <submodule_name>"
 ```
 
-## 示例
+## 注意事项
 
-```bash
-# 克隆仓库并初始化子模块
-git clone --recurse-submodules https://github.com/zalebool/git-frequent-commands.git
-
-# 切换到仓库目录
-cd git-frequent-commands
-
-# 确认子模块已初始化
-git submodule
-
-# 更新子模块（如果有更新）
-git submodule update --remote --merge
-```
-
-通过这些步骤，你可以确保克隆的仓库中的所有子模块都被正确初始化和更新，从而完整地获取项目所依赖的所有代码。
-```
-
-你可以将以上内容保存为 `clone-with-submodules.md` 文件，并将其添加到你的 Git 仓库中。
+- 拉取主仓库更新后，如果子模块引用变动，通常还需要再次执行 `git submodule update --init --recursive`。
+- 提交含有子模块的项目时，Git 记录的是子模块提交引用，而不是子模块目录的全部文件内容。

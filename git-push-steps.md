@@ -1,47 +1,93 @@
-# git-push-setps
+# Git Push 推送指南
 
-## Git push 推送指南
+## 适用场景
 
-提交代码到版本控制系统（如 Git）通常涉及以下基本步骤：
+当你已经完成本地修改，并准备把代码同步到远程仓库时，可以参考本文档中的标准流程。
 
-### 提交代码的步骤
+## 提交并推送代码的基本步骤
 
-1. **工作目录状态检查**：
-   - 在进行任何更改之前，建议先检查工作目录的状态，确认当前的修改状态。
+### 1. 检查工作区状态
 
-   ```bash
-   git status
-   ```
+在进行任何提交前，先确认当前工作区有哪些修改：
 
-2. **添加修改到暂存区**：
-   - 使用 `git add` 命令将修改或新增的文件添加到 Git 的暂存区（Staging Area）。
+```bash
+git status
+```
 
-   ```bash
-   git add <file1> <file2> ...    # 添加指定文件
-   git add .                      # 添加所有修改的文件
-   ```
+如果想用更精简的格式查看状态，可以使用：
 
-3. **确认更改**：
-   - 使用 `git status` 再次确认修改已经添加到了暂存区。
+```bash
+git status --short
+```
 
-   ```bash
-   git status
-   ```
+### 2. 添加修改到暂存区
 
-4. **提交到本地仓库**：
-   - 使用 `git commit` 命令将暂存区中的文件提交到本地仓库，并附带提交信息。
+使用 `git add` 将修改加入暂存区：
 
-   ```bash
-   git commit -m "Your commit message"
-   ```
+```bash
+git add <file1> <file2>
+```
 
-   - 如果省略 `-m` 参数，Git 将会打开默认文本编辑器（如 Vim 或 Nano），以便你输入详细的提交信息。
+如果要一次性添加当前目录下的全部修改，可以使用：
 
-5. **推送到远程仓库（可选）**：
-   - 如果是首次推送或者需要同步更新到远程仓库，可以使用 `git push` 命令将本地提交推送到远程仓库。
+```bash
+git add .
+```
 
-   ```bash
-   git push origin <branch>
-   ```
+### 3. 再次确认暂存结果
 
-   - `<branch>` 是指要推送的分支名称，通常是 `main` 或 `master`。
+添加完成后，建议再次执行状态检查，确认需要提交的内容已经进入暂存区：
+
+```bash
+git status
+```
+
+### 4. 提交到本地仓库
+
+使用 `git commit` 创建本地提交：
+
+```bash
+git commit -m "docs: update git command guides"
+```
+
+如果省略 `-m` 参数，Git 会打开默认编辑器，让你输入更完整的提交信息。
+
+### 5. 推送到远程仓库
+
+将当前分支推送到远程仓库：
+
+```bash
+git push origin <branch>
+```
+
+例如：
+
+```bash
+git push origin main
+```
+
+如果是第一次推送当前分支，并希望建立上游分支关系，可以使用：
+
+```bash
+git push -u origin <branch>
+```
+
+## 常见检查命令
+
+### 查看当前所在分支
+
+```bash
+git branch --show-current
+```
+
+### 查看远程仓库信息
+
+```bash
+git remote -v
+```
+
+## 注意事项
+
+- 推送前尽量先执行 `git status`，避免把临时文件一并提交。
+- 与他人协作时，推送前可以先执行 `git pull --rebase`，减少冲突概率。
+- 如果远程拒绝推送，需要先同步远程最新提交，再重新推送。
